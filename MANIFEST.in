@@ -1,0 +1,7 @@
+
+include *.md
+include LICENSE
+include requirements.txt
+recursive-include poseidon/template *
+graft scripts
+graft tests
