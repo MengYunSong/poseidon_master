@@ -1328,17 +1328,20 @@ def killProcessByName(processName):
 # endregion
 
 #region log methods
-def log_path():
+def report_dir():
     '''返回log跟目录'''
-    log_dir = Files.get_root()
-    return os.path.join(log_dir , 'logs')
+    root_dir = Files.get_root()
+    report_dir = os.path.join(root_dir , 'report')
+    if not os.path.exists(report_dir):
+        os.makedirs(report_dir)
+    return report_dir
 
 def log_abs_name():
     '''返回log的绝对路径'''
     log_dir = Files.get_root()
     log_dir = os.path.join(log_dir , 'logs' , 'log_%s' % (time.strftime("%Y_%m_%d" , time.localtime())))
     # 因为考虑今后可能会在k8s上跑，增加随机数减少日志重名的可能
-    logName = "{0}_{1}_{2:0>2}.txt".format('Report', time.strftime("%Y%m%d_%H%M%S", time.localtime()), randNumber(0,100))
+    logName = "{0}_{1}_{2:0>2}.txt".format('log', time.strftime("%Y%m%d_%H%M%S", time.localtime()), randNumber(0,100))
     logAsbName = os.path.join(log_dir, logName)
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)

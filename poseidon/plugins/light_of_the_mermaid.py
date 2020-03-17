@@ -77,10 +77,9 @@ def pytest_terminal_summary():
     '''
 
     # 复制html测试报告，生成最新测试报告，方便jenkins中集成查看
-
-    html_log_path = pyconfig['logfile'].get('html')
-    log_path = os.path.join(cb.log_path(), 'html_current.html')
-    shutil.copyfile(html_log_path, log_path)
+    log_path = pyconfig['logfile'].get('html')
+    report_path = os.path.join(cb.report_dir(), 'html_current.html')
+    shutil.copyfile(log_path, report_path)
 
     # 发送测试邮件
     _section_mail = pyconfig["mail"]
