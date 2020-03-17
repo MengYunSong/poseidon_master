@@ -1329,6 +1329,12 @@ def killProcessByName(processName):
 
 #region log methods
 def log_path():
+    '''返回log跟目录'''
+    log_dir = Files.get_root()
+    return os.path.join(log_dir , 'logs')
+
+def log_abs_name():
+    '''返回log的绝对路径'''
     log_dir = Files.get_root()
     log_dir = os.path.join(log_dir , 'logs' , 'log_%s' % (time.strftime("%Y_%m_%d" , time.localtime())))
     # 因为考虑今后可能会在k8s上跑，增加随机数减少日志重名的可能
@@ -1342,7 +1348,7 @@ def get_log_path_forPytest():
    """
    为pytest生成日志文件
    """
-   log_path_info = log_path().split(".")
+   log_path_info = log_abs_name().split(".")
    log_path_info = log_path_info[0]
 
    return {

@@ -2,6 +2,8 @@
 人鱼之光（TV未用，星矢重生手游设定绝招，发出紫红色光芒，对敌人造成念力伤害）
 """
 
+import os
+import shutil
 from py._xmlgen import html
 from datetime import datetime
 import pytest
@@ -9,6 +11,7 @@ import logging
 from pytest_testconfig import config as pyconfig
 from poseidon.base.SendMail import SendMail
 from poseidon.base.IP import IP
+from poseidon.base import CommonBase as cb
 
 # 测试报告相关
 
@@ -67,11 +70,19 @@ def pytest_runtest_setup(item):
     logging.info("执行用例{nodeid}:{desc}".format(nodeid=item.nodeid,
                                               desc=_msg.strip()))
 
+
 def pytest_terminal_summary():
     '''
-    :return: 1:通过邮件发送测试报告
+    :return: 1:通过邮件发送测试报告;
     '''
 
+    # 复制html测试报告，生成最新测试报告，方便jenkins中集成查看
+
+    html_log_path = pyconfig['logfile'].get('html')
+    log_path = os.path.join(cb.log_path(), 'html_current.html')
+    shutil.copyfile(html_log_path, log_path)
+
+    # 发送测试邮件
     _section_mail = pyconfig["mail"]
     if _section_mail:
         _sender = _section_mail.get('sender', None)
@@ -85,5 +96,5 @@ def pytest_terminal_summary():
             _item_name = pyconfig['rootdir'].split('/')[-1]
             _mail_title = f'{_item_name}自动化测试报告'
             send_mail_object = SendMail(sender=_sender, receiver=_receiver, mail_title=_mail_title,
-                     smtp_server=_smtp_server, smtp_port=int(_smtp_port))
+                                        smtp_server=_smtp_server, smtp_port=int(_smtp_port))
             send_mail_object.send_mail()
