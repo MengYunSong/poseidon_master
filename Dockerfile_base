@@ -1,9 +1,9 @@
 FROM python:alpine
 
-MAINTAINER songmengyun songmengyun@jmuer.com
+MAINTAINER songmengyun https://github.com/MengYunSong/poseidon_master.git
 
 # 添加标签说明
-LABEL purpose="Auto testing for Poseidon"
+LABEL purpose="Auto testing by python+pytest"
 
 # 设置用户
 USER root
