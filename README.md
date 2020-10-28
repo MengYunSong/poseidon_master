@@ -1,5 +1,5 @@
-# Poseidon
-基于python技术栈的接口自动化测试框架。 
+# Poseidon 
+基于python3.x 、pytest5.3.x为基础建立的API和UI和App自动化测试框架。
 
 优点
 * 开箱即用，无需配置
