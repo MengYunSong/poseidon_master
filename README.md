@@ -12,7 +12,7 @@
 
 
 ## 内容
-* 安装
+* [安装](docs/setup.md)
 * [新手指南](docs/new_user_guide.md)
 * [框架目录结构说明](docs/directory_explain.md)
 * [参考文档](docs/reference.md)

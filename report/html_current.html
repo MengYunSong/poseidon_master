@@ -408,7 +408,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>poseidon_master测试报告如下：</h1>
-    <p>Report generated on 2020-10-28 at 16:18:48.</p>
+    <p>Report generated on 2021-07-21 at 14:30:58.</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -430,8 +430,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.8.0</td></tr></table>
     <h2>Summary</h2>
-    <p>Runner: songmengyun at 172.16.12.57</p>
-    <p>1 tests ran in 0.67 seconds. </p>
+    <p>Runner: songmengyun at 172.16.20.203</p>
+    <p>1 tests ran in 0.74 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -449,26 +449,106 @@ function filter_table(elem) {
           <td class="col-result">Failed</td>
           <td class="col-name">tests/test_example/test_api.py::TestAPIDemo::test_api_get_music_info</td>
           <td>验证获取歌曲API成功</td>
-          <td class="col-time">2020-10-28 08:18:48.334933</td>
-          <td class="col-duration">0.20</td></tr>
+          <td class="col-time">2021-07-21 06:30:58.394491</td>
+          <td class="col-duration">0.47</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log">self = &lt;test_api.TestAPIDemo object at 0x109396910&gt;<br/><br/>    @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])<br/>    def test_api_get_music_info(self):<br/>        &#x27;&#x27;&#x27;验证获取歌曲API成功&#x27;&#x27;&#x27;<br/>        send_data = {&quot;method&quot;:&#x27;get&#x27;, &quot;url&quot;:self.url, &quot;headers&quot;:self.headers}<br/>        check_point = {&quot;code&quot;:200, &quot;message&quot;:&quot;成功!&quot;}<br/>&gt;       biz.send_music_and_respnse(send_data, check_point)<br/><br/>tests/test_example/test_api.py:50: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/business/bus_api.py:31: in send_music_and_respnse<br/>    cb.checkPartInDict(check_point, resp_act)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>expectedDict = {&#x27;code&#x27;: 200, &#x27;message&#x27;: &#x27;成功!&#x27;}<br/>actualDict = {&#x27;code&#x27;: 400, &#x27;message&#x27;: &#x27;java.lang.String cannot be cast to net.minidev.json.JSONObject&#x27;, &#x27;result&#x27;: &#x27;https://api.apiopen.top/searchMusic/&#x27;}<br/>bMatch = False, bCheck = True<br/><br/>    def checkPartInDict(expectedDict, actualDict, bMatch=False, bCheck=True):<br/>        &#x27;&#x27;&#x27;<br/>            check expected dict is in actual dict or not, if bMatch call checkMatch method, if bCheck use assert<br/>            :param dict expectedDict<br/>            :param dict actualDict<br/>            :param boolean bMatch<br/>            :param boolean bCheck<br/>        &#x27;&#x27;&#x27;<br/>    <br/>        logging.info(&quot;Check the dict %s is in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                         json.dumps(actualDict, ensure_ascii=False),))<br/>        bResult = True<br/>        for item in list(expectedDict.items()):<br/>            expected = item[1]<br/>            actual = getValue(actualDict, item[0])<br/>            if isinstance(expected, dict) and isinstance(actual, dict):<br/>                bResult = trackResult(bResult, checkPartInDict(expected, actual, bMatch, False))<br/>            elif isinstance(expected, list) and expected:<br/>                for i in range(len(expected)):<br/>                    if isinstance(expected[i], dict):<br/>                        bResult = trackResult(bResult, checkPartInDict(expected[i], actual[i], bMatch, False))<br/>                    else:<br/>                        bResult = trackResult(bResult, checkEqual(actual[i], expected[i], False))<br/>            elif not expected:<br/>                bResult = trackResult(bResult, checkEqual(actual, expected))<br/>            elif isinstance(expected, float) and isinstance(actual, float):<br/>                logging.info(&quot; check %s(float): actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                actualValue = &quot;{0:4.4f}&quot;.format(actual)<br/>                expectedValue = &quot;{0:4.4f}&quot;.format(expected)<br/>                if actualValue != expectedValue:<br/>                    logging.error(&quot;check %s: the actual is %s, but expected is %s&quot; % (<br/>                        item[0], actualValue, expectedValue))<br/>                    bResult = False<br/>            else:<br/>                logging.info(&quot;check %s: actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                if bMatch:<br/>                    bResult = trackResult(bResult, checkMatch(actual, expected, False))<br/>                elif actual != expected:<br/>                    logging.error(&quot;the actual %s value is %s, but expected is %s&quot; % (item[0], actual, expected))<br/>                    bResult = False<br/>        if bCheck:<br/>&gt;           assert bResult, &quot;Check the dict %s is not in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                                     json.dumps(actualDict, ensure_ascii=False),)<br/><span class="error">E           AssertionError: Check the dict {&quot;code&quot;: 200, &quot;message&quot;: &quot;成功!&quot;} is not in dict {&quot;code&quot;: 400, &quot;message&quot;: &quot;java.lang.String cannot be cast to net.minidev.json.JSONObject&quot;, &quot;result&quot;: &quot;https://api.apiopen.top/searchMusic/&quot;}</span><br/><span class="error">E           assert False</span><br/><br/>poseidon/base/CommonBase.py:640: AssertionError<br/> -----------------------------Captured stdout setup------------------------------ <br/>
-<br/> -------------------------------Captured log setup------------------------------- <br/>&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 执行用例tests/test_example/test_api.py::TestAPIDemo::test_api_get_music_info:验证获取歌曲API成功 (light_of_the_mermaid.py:70)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] url:https://api.apiopen.top/searchMusic/?name=好久不见 (bus_api.py:21)<br/> ------------------------------Captured stderr call------------------------------ <br/>/Users/songmengyun/Envs/py38_poseidon_master/lib/python3.8/site-packages/urllib3/connectionpool.py:997: InsecureRequestWarning: Unverified HTTPS request is being made to host &#x27;api.apiopen.top&#x27;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  warnings.warn(
-<br/> -------------------------------Captured log call-------------------------------- <br/>&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] [APNSUrl] https://api.apiopen.top/searchMusic/?name=好久不见 (bus_api.py:28)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 使用requests发送请求 (RequestsHelper.py:46)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 请求url: https://api.apiopen.top/searchMusic/?name=好久不见 (RequestsHelper.py:223)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 请求method: GET (RequestsHelper.py:224)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 请求header: {&#x27;Content-Type&#x27;: &#x27;application/json&#x27;} (RequestsHelper.py:225)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 请求header type is: &lt;class &#x27;dict&#x27;&gt; (RequestsHelper.py:226)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 请求data: None (RequestsHelper.py:227)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 校验httpStatusExp (RequestsHelper.py:291)
-&#x27;2020-10-28 16:18:47&#x27; [[32mINFO[0m] 响应headers: {&#x27;Cache-Control&#x27;: &#x27;private&#x27;, &#x27;Expires&#x27;: &#x27;Thu, 01 Jan 1970 00:00:00 GMT&#x27;, &#x27;Access-Control-Allow-Origin&#x27;: &#x27;*&#x27;, &#x27;Access-Control-Allow-Methods&#x27;: &#x27;POST, GET, OPTIONS, DELETE&#x27;, &#x27;Access-Control-Max-Age&#x27;: &#x27;3600&#x27;, &#x27;Access-Control-Allow-Headers&#x27;: &#x27;Content-Type, x-requested-with, X-Custom-Header, Authorization&#x27;, &#x27;Content-Type&#x27;: &#x27;application/json;charset=UTF-8&#x27;, &#x27;Transfer-Encoding&#x27;: &#x27;chunked&#x27;, &#x27;Date&#x27;: &#x27;Wed, 28 Oct 2020 08:19:01 GMT&#x27;} (RequestsHelper.py:296)
-&#x27;2020-10-28 16:18:48&#x27; [[32mINFO[0m] 响应response: {&#x27;code&#x27;: 400, &#x27;message&#x27;: &#x27;java.lang.String cannot be cast to net.minidev.json.JSONObject&#x27;, &#x27;result&#x27;: &#x27;https://api.apiopen.top/searchMusic/&#x27;} (RequestsHelper.py:304)
-&#x27;2020-10-28 16:18:48&#x27; [[32mINFO[0m] Check the dict {&quot;code&quot;: 200, &quot;message&quot;: &quot;成功!&quot;} is in dict {&quot;code&quot;: 400, &quot;message&quot;: &quot;java.lang.String cannot be cast to net.minidev.json.JSONObject&quot;, &quot;result&quot;: &quot;https://api.apiopen.top/searchMusic/&quot;} (CommonBase.py:608)
-&#x27;2020-10-28 16:18:48&#x27; [[32mINFO[0m] check code: actual=400, expected=200 (CommonBase.py:633)
-&#x27;2020-10-28 16:18:48&#x27; [[31m[1mERROR[0m] the actual code value is 400, but expected is 200 (CommonBase.py:637)
-&#x27;2020-10-28 16:18:48&#x27; [[32mINFO[0m] check message: actual=java.lang.String cannot be cast to net.minidev.json.JSONObject, expected=成功! (CommonBase.py:633)
-&#x27;2020-10-28 16:18:48&#x27; [[31m[1mERROR[0m] the actual message value is java.lang.String cannot be cast to net.minidev.json.JSONObject, but expected is 成功! (CommonBase.py:637)<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">self = &lt;test_api.TestAPIDemo object at 0x108118c10&gt;<br/><br/>    @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])<br/>    def test_api_get_music_info(self):<br/>        &#x27;&#x27;&#x27;验证获取歌曲API成功&#x27;&#x27;&#x27;<br/>        # send_data = {&quot;method&quot;:&#x27;get&#x27;, &quot;url&quot;:self.url, &quot;headers&quot;:self.headers}<br/>        # check_point = {&quot;code&quot;:200, &quot;message&quot;:&quot;成功!&quot;}<br/>        # biz.send_music_and_respnse(send_data, check_point)<br/>    <br/>        payload = {&#x27;username&#x27;:&quot;songmengyun@hujiang.com&quot;, &#x27;password&#x27;:&quot;14a85607c6564c7d18de2e4474fb597a&quot;,&#x27;orgCode&#x27;:&#x27;10002&#x27;}<br/>        send_data = {&quot;method&quot;:&#x27;post&#x27;, &#x27;url&#x27;:&quot;https://yzpass-api.techedux.tech/login/loginByPassword&quot;, &#x27;payload&#x27;:payload, &#x27;headers&#x27;:self.headers}<br/>        check_point = {&quot;status&quot;: 200,}<br/>&gt;       biz.send_music_and_respnse(send_data, check_point)<br/><br/>tests/test_example/test_api.py:55: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/business/bus_api.py:32: in send_music_and_respnse<br/>    cb.checkPartInDict(check_point, resp_act)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>expectedDict = {&#x27;status&#x27;: 200}<br/>actualDict = {&#x27;code&#x27;: 0, &#x27;data&#x27;: {&#x27;accessToken&#x27;: &#x27;134c746eaf372000.e98a2c9323680beab6012836492c404f&#x27;, &#x27;avatar&#x27;: &#x27;https://hjtest.hjf...9303638382e3235653235623638666635383061653366356538383662636361626637663937&#x27;, ...}, &#x27;fail&#x27;: False, &#x27;hexCode&#x27;: &#x27;0&#x27;, ...}<br/>bMatch = False, bCheck = True<br/><br/>    def checkPartInDict(expectedDict, actualDict, bMatch=False, bCheck=True):<br/>        &#x27;&#x27;&#x27;<br/>            check expected dict is in actual dict or not, if bMatch call checkMatch method, if bCheck use assert<br/>            :param dict expectedDict<br/>            :param dict actualDict<br/>            :param boolean bMatch<br/>            :param boolean bCheck<br/>        &#x27;&#x27;&#x27;<br/>    <br/>        logging.info(&quot;Check the dict %s is in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                         json.dumps(actualDict, ensure_ascii=False),))<br/>        bResult = True<br/>        for item in list(expectedDict.items()):<br/>            expected = item[1]<br/>            actual = getValue(actualDict, item[0])<br/>            if isinstance(expected, dict) and isinstance(actual, dict):<br/>                bResult = trackResult(bResult, checkPartInDict(expected, actual, bMatch, False))<br/>            elif isinstance(expected, list) and expected:<br/>                for i in range(len(expected)):<br/>                    if isinstance(expected[i], dict):<br/>                        bResult = trackResult(bResult, checkPartInDict(expected[i], actual[i], bMatch, False))<br/>                    else:<br/>                        bResult = trackResult(bResult, checkEqual(actual[i], expected[i], False))<br/>            elif not expected:<br/>                bResult = trackResult(bResult, checkEqual(actual, expected))<br/>            elif isinstance(expected, float) and isinstance(actual, float):<br/>                logging.info(&quot; check %s(float): actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                actualValue = &quot;{0:4.4f}&quot;.format(actual)<br/>                expectedValue = &quot;{0:4.4f}&quot;.format(expected)<br/>                if actualValue != expectedValue:<br/>                    logging.error(&quot;check %s: the actual is %s, but expected is %s&quot; % (<br/>                        item[0], actualValue, expectedValue))<br/>                    bResult = False<br/>            else:<br/>                logging.info(&quot;check %s: actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                if bMatch:<br/>                    bResult = trackResult(bResult, checkMatch(actual, expected, False))<br/>                elif actual != expected:<br/>                    logging.error(&quot;the actual %s value is %s, but expected is %s&quot; % (item[0], actual, expected))<br/>                    bResult = False<br/>        if bCheck:<br/>&gt;           assert bResult, &quot;Check the dict %s is not in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                                     json.dumps(actualDict, ensure_ascii=False),)<br/><span class="error">E           AssertionError: Check the dict {&quot;status&quot;: 200} is not in dict {&quot;time&quot;: &quot;2021-07-21T14:30:58+08:00&quot;, &quot;code&quot;: 0, &quot;message&quot;: null, &quot;data&quot;: {&quot;userId&quot;: &quot;1390614403685490688&quot;, &quot;username&quot;: &quot;手机用户is8ZB9&quot;, &quot;profiles&quot;: null, &quot;profile&quot;: {&quot;nickname&quot;: &quot;lalalalala&quot;, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;orgCode&quot;: &quot;10002&quot;, &quot;orgName&quot;: &quot;OCS专用_CC&quot;, &quot;orgId&quot;: 2}, &quot;mobile&quot;: &quot;13000000020&quot;, &quot;email&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;sexType&quot;: null, &quot;mobileBindStatus&quot;: null, &quot;accessToken&quot;: &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;, &quot;hasSetPassword&quot;: true, &quot;created&quot;: &quot;2021-07-09 11:27:02&quot;, &quot;refreshToken&quot;: &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;, &quot;refreshed&quot;: &quot;2021-07-21 14:30:58&quot;, &quot;expired&quot;: &quot;2021-08-20 14:30:58&quot;, &quot;clubAuth&quot;: &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;, &quot;clubAuthExpired&quot;: &quot;2021-08-04T14:30:58+08:00&quot;, &quot;bindMobileRequired&quot;: null, &quot;mobileBind&quot;: true, &quot;passwordKey&quot;: &quot;wliqzysggc&quot;, &quot;selectOrg&quot;: true, &quot;profileList&quot;: null, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;nickname&quot;: &quot;lalalalala&quot;}, &quot;status&quot;: 0, &quot;ok&quot;: true, &quot;fail&quot;: false, &quot;hexCode&quot;: &quot;0&quot;}</span><br/><span class="error">E           assert False</span><br/><br/>poseidon/base/CommonBase.py:640: AssertionError<br/> -----------------------------Captured stdout setup------------------------------ <br/>
+<br/> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 执行用例tests/test_example/test_api.py::TestAPIDemo::test_api_get_music_info:验证获取歌曲API成功 (light_of_the_mermaid.py:70)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] url:https://api.apiopen.top/searchMusic/?name=Jack (bus_api.py:21)<br/> ------------------------------Captured stderr call------------------------------ <br/>*   Trying 172.27.2.143...
+* TCP_NODELAY set
+* Connected to yzpass-api.techedux.tech (172.27.2.143) port 443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*   CAfile: /etc/ssl/cert.pem
+  CApath: none
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: C=CN; ST=\U4E0A\U6D77\U5E02; O=\U4E0A\U6D77\U82F1\U62D3\U4FE1\U606F\U79D1\U6280\U6709\U9650\U516C\U53F8; CN=*.techedux.tech
+*  start date: Mar 25 00:00:00 2021 GMT
+*  expire date: Mar 29 23:59:59 2022 GMT
+*  subjectAltName: host &quot;yzpass-api.techedux.tech&quot; matched cert&#x27;s &quot;*.techedux.tech&quot;
+*  issuer: C=US; O=DigiCert Inc; OU=www.digicert.com; CN=GeoTrust CN RSA CA G1
+*  SSL certificate verify ok.
+&gt; POST /login/loginByPassword HTTP/1.1
+Host: yzpass-api.techedux.tech
+User-Agent: Mozilla/5.2 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50324)
+Accept: */*
+Content-Type:application/json
+Content-Length: 107
+
+* upload completely sent off: 107 out of 107 bytes
+&lt; HTTP/1.1 200 OK
+&lt; Date: Wed, 21 Jul 2021 06:30:58 GMT
+&lt; Content-Type: application/json
+&lt; Transfer-Encoding: chunked
+&lt; Connection: keep-alive
+&lt; X-HJ-Response-ID: 0dc186da306b47d7bffa8202275d727f
+&lt; Vary: Accept-Encoding, User-Agent
+&lt; X-IN-APIGATEWAY: ali-47
+&lt; Server: API-GATEWAYSSL/1.0
+&lt; X-IN-APIGATEWAYSSL: ali-165
+&lt; 
+* Connection #0 to host yzpass-api.techedux.tech left intact
+<br/> -------------------------------Captured log call-------------------------------- <br/>&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] [APNSUrl] https://yzpass-api.techedux.tech/login/loginByPassword (bus_api.py:29)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 使用pycurl发送请求 (RequestsHelper.py:42)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求url: https://yzpass-api.techedux.tech/login/loginByPassword (RequestsHelper.py:73)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求method: POST (RequestsHelper.py:74)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求header: [&#x27;Content-Type:application/json&#x27;] (RequestsHelper.py:87)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求header type is: &lt;class &#x27;list&#x27;&gt; (RequestsHelper.py:88)
+&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求data: {&quot;username&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;password&quot;: &quot;14a85607c6564c7d18de2e4474fb597a&quot;, &quot;orgCode&quot;: &quot;10002&quot;} (RequestsHelper.py:108)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 请求总时间: 437.466 ms (RequestsHelper.py:158)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] DNS域名解析时间 : 70.339 ms (RequestsHelper.py:159)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] TCP连接消耗时间 : 9.587 ms (RequestsHelper.py:160)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 重定向时间: 0.000 ms (RequestsHelper.py:161)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] SSL握手消耗时间 : 281.683 ms (RequestsHelper.py:162)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 客户端发送请求准备时间: 0.141 ms (RequestsHelper.py:163)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 服务器处理时间: 75.336 ms (RequestsHelper.py:164)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 数据传输时间: 0.380 ms (RequestsHelper.py:165)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 校验httpStatusExp (RequestsHelper.py:189)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] Check the value &#x27;200&#x27; with &#x27;200&#x27; (CommonBase.py:304)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 响应response:{
+  &quot;time&quot; : &quot;2021-07-21T14:30:58+08:00&quot;,
+  &quot;code&quot; : 0,
+  &quot;message&quot; : null,
+  &quot;data&quot; : {
+    &quot;userId&quot; : &quot;1390614403685490688&quot;,
+    &quot;username&quot; : &quot;手机用户is8ZB9&quot;,
+    &quot;profiles&quot; : null,
+    &quot;profile&quot; : {
+      &quot;nickname&quot; : &quot;lalalalala&quot;,
+      &quot;avatar&quot; : &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;,
+      &quot;orgCode&quot; : &quot;10002&quot;,
+      &quot;orgName&quot; : &quot;OCS专用_CC&quot;,
+      &quot;orgId&quot; : 2
+    },
+    &quot;mobile&quot; : &quot;13000000020&quot;,
+    &quot;email&quot; : &quot;songmengyun@hujiang.com&quot;,
+    &quot;sexType&quot; : null,
+    &quot;mobileBindStatus&quot; : null,
+    &quot;accessToken&quot; : &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;,
+    &quot;hasSetPassword&quot; : true,
+    &quot;created&quot; : &quot;2021-07-09 11:27:02&quot;,
+    &quot;refreshToken&quot; : &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;,
+    &quot;refreshed&quot; : &quot;2021-07-21 14:30:58&quot;,
+    &quot;expired&quot; : &quot;2021-08-20 14:30:58&quot;,
+    &quot;clubAuth&quot; : &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;,
+    &quot;clubAuthExpired&quot; : &quot;2021-08-04T14:30:58+08:00&quot;,
+    &quot;bindMobileRequired&quot; : null,
+    &quot;mobileBind&quot; : true,
+    &quot;passwordKey&quot; : &quot;wliqzysggc&quot;,
+    &quot;selectOrg&quot; : true,
+    &quot;profileList&quot; : null,
+    &quot;avatar&quot; : &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;,
+    &quot;nickname&quot; : &quot;lalalalala&quot;
+  },
+  &quot;status&quot; : 0,
+  &quot;ok&quot; : true,
+  &quot;fail&quot; : false,
+  &quot;hexCode&quot; : &quot;0&quot;
+} (RequestsHelper.py:193)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] Check the dict {&quot;status&quot;: 200} is in dict {&quot;time&quot;: &quot;2021-07-21T14:30:58+08:00&quot;, &quot;code&quot;: 0, &quot;message&quot;: null, &quot;data&quot;: {&quot;userId&quot;: &quot;1390614403685490688&quot;, &quot;username&quot;: &quot;手机用户is8ZB9&quot;, &quot;profiles&quot;: null, &quot;profile&quot;: {&quot;nickname&quot;: &quot;lalalalala&quot;, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;orgCode&quot;: &quot;10002&quot;, &quot;orgName&quot;: &quot;OCS专用_CC&quot;, &quot;orgId&quot;: 2}, &quot;mobile&quot;: &quot;13000000020&quot;, &quot;email&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;sexType&quot;: null, &quot;mobileBindStatus&quot;: null, &quot;accessToken&quot;: &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;, &quot;hasSetPassword&quot;: true, &quot;created&quot;: &quot;2021-07-09 11:27:02&quot;, &quot;refreshToken&quot;: &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;, &quot;refreshed&quot;: &quot;2021-07-21 14:30:58&quot;, &quot;expired&quot;: &quot;2021-08-20 14:30:58&quot;, &quot;clubAuth&quot;: &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;, &quot;clubAuthExpired&quot;: &quot;2021-08-04T14:30:58+08:00&quot;, &quot;bindMobileRequired&quot;: null, &quot;mobileBind&quot;: true, &quot;passwordKey&quot;: &quot;wliqzysggc&quot;, &quot;selectOrg&quot;: true, &quot;profileList&quot;: null, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;nickname&quot;: &quot;lalalalala&quot;}, &quot;status&quot;: 0, &quot;ok&quot;: true, &quot;fail&quot;: false, &quot;hexCode&quot;: &quot;0&quot;} (CommonBase.py:608)
+&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] check status: actual=0, expected=200 (CommonBase.py:633)
+&#x27;2021-07-21 14:30:58&#x27; [[31m[1mERROR[0m] the actual status value is 0, but expected is 200 (CommonBase.py:637)<br/></div></td></tr></tbody></table></body></html>

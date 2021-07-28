@@ -25,8 +25,9 @@ class BusBase(RequestUtils, Requests):
         url = send_data.get('url')
         method = send_data.get('method')
         headers = send_data.get('headers')
+        data = send_data.get('payload')
         logging.info("[APNSUrl] %s" % (url))
-        resp_act = super().sendRequest(method=method, url=url, headers=headers, httpStatusExp=http_status,
+        resp_act = super().sendRequest(method=method, url=url, data=data, headers=headers, httpStatusExp=http_status,
                                        statusExp=status_exp)
         cb.checkPartInDict(check_point, resp_act)
 
