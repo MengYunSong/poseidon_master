@@ -2,7 +2,7 @@
 
 """
 @author:songmengyun
-@file: test_1.py
+@file: test_base.py
 @time: 2020/03/13
 
 """
@@ -59,19 +59,14 @@ class TestAPIDemo:
         diff = a - b
         cb.checkEqual(diff, expected)
 
-    def test_assert(self):
-        assert 1==1
-
     def test_match(self):
         with pytest.raises(ValueError, match=r".* 123 .*"):
             raise ValueError("Exception 123 raised")
 
-    # def test_set_comparison(self):
-    #     set1 = set("1308")
-    #     set2 = set("8035")
-    #     assert set1 == set2
+    def test_set_comparison(self):
+        set1 = set("1308")
+        set2 = set("8013")
+        assert set1 == set2
 
     def test_skip(self):
         pytest.skip('暂时不处理')
-
-

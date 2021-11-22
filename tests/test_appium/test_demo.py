@@ -11,7 +11,7 @@ import pytest
 import logging
 from poseidon.ui.mobile.android.init_driver import init_driver
 from tests.data.data_and import data_and
-from tests.business.pages.login_page import LoginPage
+from tests.business.pages_and.login_page import LoginPage
 from poseidon.base.Env import Env
 from poseidon.base.Frequency import Frequency
 

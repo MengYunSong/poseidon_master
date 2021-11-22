@@ -24,11 +24,11 @@ class TestAPIDemo:
     ]
 
     @classmethod
-    def setup_class(self):
+    def setup_class(cls):
         """ 所有case初始化操作 """
-        self.music_name = 'Jack'
-        self.url = biz.get_url(f"?name={self.music_name}", base.url)
-        self.headers = {'Content-Type':'application/json'}
+        cls.music_name = 'Jack'
+        cls.url = biz.get_url(f"?name={cls.music_name}", base.url)
+        cls.headers = {'Content-Type':'application/json'}
 
     @classmethod
     def teardown_class(cls):
@@ -36,7 +36,6 @@ class TestAPIDemo:
 
     def setup_method(self):
         """ 每个case初始化操作 """
-        print('')
 
     def teardown_method(self, method):
         """ 每个case执行完后操作"""
@@ -45,27 +44,13 @@ class TestAPIDemo:
     @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])
     def test_api_get_music_info(self):
         '''验证获取歌曲API成功'''
-        # send_data = {"method":'get', "url":self.url, "headers":self.headers}
-        # check_point = {"code":200, "message":"成功!"}
-        # biz.send_music_and_respnse(send_data, check_point)
-
-        payload = {'username':"songmengyun@hujiang.com", 'password':"14a85607c6564c7d18de2e4474fb597a",'orgCode':'10002'}
-        send_data = {"method":'post', 'url':"https://yzpass-api.techedux.tech/login/loginByPassword", 'payload':payload, 'headers':self.headers}
-        check_point = {"status": 0,}
+        send_data = {"method":'get', "url":self.url, "headers":self.headers}
+        check_point = {"code":200, "message":"成功!"}
         biz.send_music_and_respnse(send_data, check_point)
 
-    @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])
-    def test_commonbase(self):
-        """验证commonbase中比较参数"""
-        cb.checkEqual(1, 1)    # 比较n=expected
-        cb.checkResultIsNotNone(2)    # 验证n不为空
-        cb.checkDictionary({'a':1},{'a':1})   # 字典比较
-        '''
-        其他比较请查看 poseidon.base.Commonbase模块
-        '''
+        # payload = {'username':"songmengyun@hujiang.com", 'password':"14a85607c6564c7d18de2e4474fb597a",'orgCode':'10002'}
+        # send_data = {"method":'post', 'url':"https://yzpass-api.techedux.tech/login/loginByPassword", 'payload':payload, 'headers':self.headers}
+        # check_point = {"status": 0,}
+        # biz.send_music_and_respnse(send_data, check_point)
 
-    @pytest.mark.parametrize("a,b,expected", testdata)
-    def test_parametrize(self, a, b, expected):
-        ''' 验证parametrize'''
-        diff = a - b
-        cb.checkEqual(diff, expected)
+

@@ -2,66 +2,73 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no"/>
     <title>Test Report</title>
     <style>body {
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12px;
-	/* do not increase min-width as some may use split screens */
-	min-width: 800px;
-	color: #999;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  /* do not increase min-width as some may use split screens */
+  min-width: 800px;
+  color: #999;
 }
 
 h1 {
-	font-size: 30px;
-	color: darkgreen;
+  font-size: 24px;
+  color: black;
 }
 
 h2 {
-	font-size: 20px;
-	color: black;
+  font-size: 16px;
+  color: black;
 }
 
 p {
-	color: black;
-	font-size: 13px;
-
+  color: black;
 }
 
 a {
-	color: #999;
+  color: #999;
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 /******************************
  * SUMMARY INFORMATION
  ******************************/
-
 #environment td {
-	padding: 5px;
-	border: 1px solid #E6E6E6;
+  padding: 5px;
+  border: 1px solid #E6E6E6;
 }
-
 #environment tr:nth-child(odd) {
-	background-color: #f6f6f6;
+  background-color: #f6f6f6;
 }
 
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result {
-	color: green;
-}
-span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
-	color: orange;
-}
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
-	color: red;
+span.passed,
+.passed .col-result {
+  color: green;
 }
 
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
+  color: orange;
+}
+
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
+  color: red;
+}
 
 /******************************
  * RESULTS TABLE
@@ -71,104 +78,116 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
  * 3. Sorting items
  *
  ******************************/
-
 /*------------------
  * 1. Table Layout
  *------------------*/
-
 #results-table {
-	border: 1px solid #e6e6e6;
-	color: #999;
-	font-size: 12px;
-	width: 100%
+  border: 1px solid #e6e6e6;
+  color: #999;
+  font-size: 12px;
+  width: 100%;
 }
-
-#results-table th, #results-table td {
-	padding: 5px;
-	border: 1px solid #E6E6E6;
-	text-align: left
+#results-table th,
+#results-table td {
+  padding: 5px;
+  border: 1px solid #E6E6E6;
+  text-align: left;
 }
 #results-table th {
-	font-weight: bold
+  font-weight: bold;
 }
 
 /*------------------
  * 2. Extra
  *------------------*/
-
-.log:only-child {
-	height: inherit
-}
 .log {
-	background-color: #e6e6e6;
-	border: 1px solid #e6e6e6;
-	color: black;
-	display: block;
-	font-family: "Courier New", Courier, monospace;
-	height: 230px;
-	overflow-y: scroll;
-	padding: 5px;
-	white-space: pre-wrap
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  color: black;
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  height: 230px;
+  overflow-y: scroll;
+  padding: 5px;
+  white-space: pre-wrap;
 }
+.log:only-child {
+  height: inherit;
+}
+
 div.image {
-	border: 1px solid #e6e6e6;
-	float: right;
-	height: 240px;
-	margin-left: 5px;
-	overflow: hidden;
-	width: 320px
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
 }
 div.image img {
-	width: 320px
+  width: 320px;
 }
+
+div.video {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
+}
+div.video video {
+  overflow: hidden;
+  width: 320px;
+  height: 240px;
+}
+
 .collapsed {
-	display: none;
+  display: none;
 }
+
 .expander::after {
-	content: " (show details)";
-	color: #BBB;
-	font-style: italic;
-	cursor: pointer;
+  content: " (show details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
 }
+
 .collapser::after {
-	content: " (hide details)";
-	color: #BBB;
-	font-style: italic;
-	cursor: pointer;
+  content: " (hide details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
 }
 
 /*------------------
  * 3. Sorting items
  *------------------*/
 .sortable {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .sort-icon {
-	font-size: 0px;
-	float: left;
-	margin-right: 5px;
-	margin-top: 5px;
-	/*triangle*/
-	width: 0;
-	height: 0;
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+  font-size: 0px;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  /*triangle*/
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
 }
-
 .inactive .sort-icon {
-	/*finish triangle*/
-	border-top: 8px solid #E6E6E6;
+  /*finish triangle*/
+  border-top: 8px solid #E6E6E6;
 }
-
 .asc.active .sort-icon {
-	/*finish triangle*/
-	border-bottom: 8px solid #999;
+  /*finish triangle*/
+  border-bottom: 8px solid #999;
 }
-
 .desc.active .sort-icon {
-	/*finish triangle*/
-	border-top: 8px solid #999;
+  /*finish triangle*/
+  border-top: 8px solid #999;
 }
 </style></head>
   <body onLoad="init()">
@@ -184,195 +203,197 @@ function toArray(iter) {
     return Array.prototype.slice.call(iter);
 }
 
-function find(selector, elem) {
+function find(selector, elem) { // eslint-disable-line no-redeclare
     if (!elem) {
         elem = document;
     }
     return elem.querySelector(selector);
 }
 
-function find_all(selector, elem) {
+function findAll(selector, elem) {
     if (!elem) {
         elem = document;
     }
     return toArray(elem.querySelectorAll(selector));
 }
 
-function sort_column(elem) {
-    toggle_sort_states(elem);
-    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
-    var key;
-    if (elem.classList.contains('numeric')) {
-        key = key_num;
-    } else if (elem.classList.contains('result')) {
-        key = key_result;
+function sortColumn(elem) {
+    toggleSortStates(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('result')) {
+        key = keyResult;
+    } else if (elem.classList.contains('links')) {
+        key = keyLink;
     } else {
-        key = key_alpha;
+        key = keyAlpha;
     }
-    sort_table(elem, key(colIndex));
+    sortTable(elem, key(colIndex));
 }
 
-function show_all_extras() {
-    find_all('.col-result').forEach(show_extras);
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
 }
 
-function hide_all_extras() {
-    find_all('.col-result').forEach(hide_extras);
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
 }
 
-function show_extras(colresult_elem) {
-    var extras = colresult_elem.parentNode.nextElementSibling;
-    var expandcollapse = colresult_elem.firstElementChild;
-    extras.classList.remove("collapsed");
-    expandcollapse.classList.remove("expander");
-    expandcollapse.classList.add("collapser");
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
 }
 
-function hide_extras(colresult_elem) {
-    var extras = colresult_elem.parentNode.nextElementSibling;
-    var expandcollapse = colresult_elem.firstElementChild;
-    extras.classList.add("collapsed");
-    expandcollapse.classList.remove("collapser");
-    expandcollapse.classList.add("expander");
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
 }
 
-function show_filters() {
-    var filter_items = document.getElementsByClassName('filter');
-    for (var i = 0; i < filter_items.length; i++)
-        filter_items[i].hidden = false;
+function showFilters() {
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++)
+        filterItems[i].hidden = false;
 }
 
-function add_collapse() {
+function addCollapse() {
     // Add links for show/hide all
-    var resulttable = find('table#results-table');
-    var showhideall = document.createElement("p");
-    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
-                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
     resulttable.parentElement.insertBefore(showhideall, resulttable);
 
     // Add show/hide link to each result
-    find_all('.col-result').forEach(function(elem) {
-        var collapsed = get_query_parameter('collapsed') || 'Passed';
-        var extras = elem.parentNode.nextElementSibling;
-        var expandcollapse = document.createElement("span");
-        if (collapsed.includes(elem.innerHTML)) {
-            extras.classList.add("collapsed");
-            expandcollapse.classList.add("expander");
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
         } else {
-            expandcollapse.classList.add("collapser");
+            expandcollapse.classList.add('collapser');
         }
         elem.appendChild(expandcollapse);
 
-        elem.addEventListener("click", function(event) {
-            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
-                show_extras(event.currentTarget);
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                showExtras(event.currentTarget);
             } else {
-                hide_extras(event.currentTarget);
+                hideExtras(event.currentTarget);
             }
         });
-    })
+    });
 }
 
-function get_query_parameter(name) {
-    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+function getQueryParameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-function init () {
-    reset_sort_headers();
+function init () { // eslint-disable-line no-unused-vars
+    resetSortHeaders();
 
-    add_collapse();
+    addCollapse();
 
-    show_filters();
+    showFilters();
 
-    sort_column(find('.initial-sort'));
+    sortColumn(find('.initial-sort'));
 
-    find_all('.sortable').forEach(function(elem) {
-        elem.addEventListener("click",
-                              function(event) {
-                                  sort_column(elem);
-                              }, false)
+    findAll('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sortColumn(elem);
+            }, false);
     });
+}
 
-};
-
-function sort_table(clicked, key_func) {
-    var rows = find_all('.results-table-row');
-    var reversed = !clicked.classList.contains('asc');
-    var sorted_rows = sort(rows, key_func, reversed);
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sortedRows = sort(rows, keyFunc, reversed);
     /* Whole table is removed here because browsers acts much slower
      * when appending existing elements.
      */
-    var thead = document.getElementById("results-table-head");
+    const thead = document.getElementById('results-table-head');
     document.getElementById('results-table').remove();
-    var parent = document.createElement("table");
-    parent.id = "results-table";
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
     parent.appendChild(thead);
-    sorted_rows.forEach(function(elem) {
+    sortedRows.forEach(function(elem) {
         parent.appendChild(elem);
     });
-    document.getElementsByTagName("BODY")[0].appendChild(parent);
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
 }
 
-function sort(items, key_func, reversed) {
-    var sort_array = items.map(function(item, i) {
-        return [key_func(item), i];
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
     });
 
-    sort_array.sort(function(a, b) {
-        var key_a = a[0];
-        var key_b = b[0];
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
 
-        if (key_a == key_b) return 0;
+        if (keyA == keyB) return 0;
 
         if (reversed) {
-            return (key_a < key_b ? 1 : -1);
+            return keyA < keyB ? 1 : -1;
         } else {
-            return (key_a > key_b ? 1 : -1);
+            return keyA > keyB ? 1 : -1;
         }
     });
 
-    return sort_array.map(function(item) {
-        var index = item[1];
+    return sortArray.map(function(item) {
+        const index = item[1];
         return items[index];
     });
 }
 
-function key_alpha(col_index) {
+function keyAlpha(colIndex) {
     return function(elem) {
-        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
     };
 }
 
-function key_num(col_index) {
+function keyLink(colIndex) {
     return function(elem) {
-        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
     };
 }
 
-function key_result(col_index) {
+function keyResult(colIndex) {
     return function(elem) {
-        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
-                       'Skipped', 'Passed'];
-        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
     };
 }
 
-function reset_sort_headers() {
-    find_all('.sort-icon').forEach(function(elem) {
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
         elem.parentNode.removeChild(elem);
     });
-    find_all('.sortable').forEach(function(elem) {
-        var icon = document.createElement("div");
-        icon.className = "sort-icon";
-        icon.textContent = "vvv";
+    findAll('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
         elem.insertBefore(icon, elem.firstChild);
-        elem.classList.remove("desc", "active");
-        elem.classList.add("asc", "inactive");
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
     });
 }
 
-function toggle_sort_states(elem) {
+function toggleSortStates(elem) {
     //if active, toggle between asc and desc
     if (elem.classList.contains('active')) {
         elem.classList.toggle('asc');
@@ -381,58 +402,67 @@ function toggle_sort_states(elem) {
 
     //if inactive, reset all other functions and add ascending active
     if (elem.classList.contains('inactive')) {
-        reset_sort_headers();
+        resetSortHeaders();
         elem.classList.remove('inactive');
         elem.classList.add('active');
     }
 }
 
-function is_all_rows_hidden(value) {
-  return value.hidden == false;
+function isAllRowsHidden(value) {
+    return value.hidden == false;
 }
 
-function filter_table(elem) {
-    var outcome_att = "data-test-result";
-    var outcome = elem.getAttribute(outcome_att);
-    class_outcome = outcome + " results-table-row";
-    var outcome_rows = document.getElementsByClassName(class_outcome);
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
 
-    for(var i = 0; i < outcome_rows.length; i++){
-        outcome_rows[i].hidden = !elem.checked;
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
     }
 
-    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
-    var all_rows_hidden = rows.length == 0 ? true : false;
-    var not_found_message = document.getElementById("not-found-message");
-    not_found_message.hidden = !all_rows_hidden;
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
-    <h1>poseidon_master测试报告如下：</h1>
-    <p>Report generated on 2021-07-21 at 14:30:58.</p>
+    <h1>log_20211117_173754_25.html</h1>
+    <p>Report generated on 17-Nov-2021 at 17:37:55 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
-        <td>Current Env</td>
-        <td>qa</td></tr>
+        <td>Capabilities</td>
+        <td>{}</td></tr>
       <tr>
         <td>Driver</td>
-        <td>None</td></tr>
+        <td>chrome</td></tr>
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home</td></tr>
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;5.3.5&apos;, &apos;py&apos;: &apos;1.8.0&apos;, &apos;pluggy&apos;: &apos;0.13.1&apos;}</td></tr>
+        <td>{"pluggy": "0.13.1", "py": "1.8.0", "pytest": "5.3.5"}</td></tr>
       <tr>
         <td>Platform</td>
         <td>macOS-10.14.6-x86_64-i386-64bit</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;html&apos;: &apos;3.0.2&apos;, &apos;variables&apos;: &apos;1.9.0&apos;, &apos;testconfig&apos;: &apos;0.2.0&apos;, &apos;poseidon&apos;: &apos;3.0.3&apos;, &apos;base-url&apos;: &apos;1.4.1&apos;, &apos;selenium&apos;: &apos;1.17.0&apos;, &apos;json&apos;: &apos;0.4.0&apos;, &apos;allure-pytest&apos;: &apos;2.8.11&apos;, &apos;metadata&apos;: &apos;1.8.0&apos;}</td></tr>
+        <td>{"allure-pytest": "2.8.11", "base-url": "1.4.1", "html": "3.1.1", "json": "0.4.0", "metadata": "1.8.0", "poseidon": "3.0.3", "selenium": "2.0.1", "testconfig": "0.2.0", "variables": "1.9.0"}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.8.0</td></tr></table>
+        <td>3.8.0</td></tr>
+      <tr>
+        <td>当前环境</td>
+        <td>qa</td></tr>
+      <tr>
+        <td>测试地址</td>
+        <td>192.168.155.11</td></tr></table>
     <h2>Summary</h2>
-    <p>Runner: songmengyun at 172.16.20.203</p>
-    <p>1 tests ran in 0.74 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>测试人员: songmengyun</p>
+    <p>4 tests ran in 0.17 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -441,114 +471,46 @@ function filter_table(elem) {
           <th class="sortable" col="name">Test</th>
           <th>Description</th>
           <th class="sortable time" col="time">Time</th>
-          <th class="sortable numeric" col="duration">Duration</th></tr>
+          <th class="sortable" col="duration">Duration</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="5">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">tests/test_example/test_api.py::TestAPIDemo::test_api_get_music_info</td>
-          <td>验证获取歌曲API成功</td>
-          <td class="col-time">2021-07-21 06:30:58.394491</td>
-          <td class="col-duration">0.47</td></tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åæ­£ç¡®, å¯ç æ­£ç¡®-&gt;[ç¨æ·å:linuxè¶-å¯ç :linuxè¶å¥-é¢æ:{&apos;code&apos;: 1001, &apos;msg&apos;: &apos;ç»å½æå&apos;, &apos;data&apos;: &apos;success&apos;}]]</td>
+          <td>测试登录</td>
+          <td class="col-time">2021-11-17 09:37:55.517500</td>
+          <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log">self = &lt;test_api.TestAPIDemo object at 0x108118c10&gt;<br/><br/>    @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])<br/>    def test_api_get_music_info(self):<br/>        &#x27;&#x27;&#x27;验证获取歌曲API成功&#x27;&#x27;&#x27;<br/>        # send_data = {&quot;method&quot;:&#x27;get&#x27;, &quot;url&quot;:self.url, &quot;headers&quot;:self.headers}<br/>        # check_point = {&quot;code&quot;:200, &quot;message&quot;:&quot;成功!&quot;}<br/>        # biz.send_music_and_respnse(send_data, check_point)<br/>    <br/>        payload = {&#x27;username&#x27;:&quot;songmengyun@hujiang.com&quot;, &#x27;password&#x27;:&quot;14a85607c6564c7d18de2e4474fb597a&quot;,&#x27;orgCode&#x27;:&#x27;10002&#x27;}<br/>        send_data = {&quot;method&quot;:&#x27;post&#x27;, &#x27;url&#x27;:&quot;https://yzpass-api.techedux.tech/login/loginByPassword&quot;, &#x27;payload&#x27;:payload, &#x27;headers&#x27;:self.headers}<br/>        check_point = {&quot;status&quot;: 200,}<br/>&gt;       biz.send_music_and_respnse(send_data, check_point)<br/><br/>tests/test_example/test_api.py:55: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>tests/business/bus_api.py:32: in send_music_and_respnse<br/>    cb.checkPartInDict(check_point, resp_act)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>expectedDict = {&#x27;status&#x27;: 200}<br/>actualDict = {&#x27;code&#x27;: 0, &#x27;data&#x27;: {&#x27;accessToken&#x27;: &#x27;134c746eaf372000.e98a2c9323680beab6012836492c404f&#x27;, &#x27;avatar&#x27;: &#x27;https://hjtest.hjf...9303638382e3235653235623638666635383061653366356538383662636361626637663937&#x27;, ...}, &#x27;fail&#x27;: False, &#x27;hexCode&#x27;: &#x27;0&#x27;, ...}<br/>bMatch = False, bCheck = True<br/><br/>    def checkPartInDict(expectedDict, actualDict, bMatch=False, bCheck=True):<br/>        &#x27;&#x27;&#x27;<br/>            check expected dict is in actual dict or not, if bMatch call checkMatch method, if bCheck use assert<br/>            :param dict expectedDict<br/>            :param dict actualDict<br/>            :param boolean bMatch<br/>            :param boolean bCheck<br/>        &#x27;&#x27;&#x27;<br/>    <br/>        logging.info(&quot;Check the dict %s is in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                         json.dumps(actualDict, ensure_ascii=False),))<br/>        bResult = True<br/>        for item in list(expectedDict.items()):<br/>            expected = item[1]<br/>            actual = getValue(actualDict, item[0])<br/>            if isinstance(expected, dict) and isinstance(actual, dict):<br/>                bResult = trackResult(bResult, checkPartInDict(expected, actual, bMatch, False))<br/>            elif isinstance(expected, list) and expected:<br/>                for i in range(len(expected)):<br/>                    if isinstance(expected[i], dict):<br/>                        bResult = trackResult(bResult, checkPartInDict(expected[i], actual[i], bMatch, False))<br/>                    else:<br/>                        bResult = trackResult(bResult, checkEqual(actual[i], expected[i], False))<br/>            elif not expected:<br/>                bResult = trackResult(bResult, checkEqual(actual, expected))<br/>            elif isinstance(expected, float) and isinstance(actual, float):<br/>                logging.info(&quot; check %s(float): actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                actualValue = &quot;{0:4.4f}&quot;.format(actual)<br/>                expectedValue = &quot;{0:4.4f}&quot;.format(expected)<br/>                if actualValue != expectedValue:<br/>                    logging.error(&quot;check %s: the actual is %s, but expected is %s&quot; % (<br/>                        item[0], actualValue, expectedValue))<br/>                    bResult = False<br/>            else:<br/>                logging.info(&quot;check %s: actual=%s, expected=%s&quot; % (item[0], actual, expected))<br/>                if bMatch:<br/>                    bResult = trackResult(bResult, checkMatch(actual, expected, False))<br/>                elif actual != expected:<br/>                    logging.error(&quot;the actual %s value is %s, but expected is %s&quot; % (item[0], actual, expected))<br/>                    bResult = False<br/>        if bCheck:<br/>&gt;           assert bResult, &quot;Check the dict %s is not in dict %s&quot; % (json.dumps(expectedDict, ensure_ascii=False),<br/>                                                                     json.dumps(actualDict, ensure_ascii=False),)<br/><span class="error">E           AssertionError: Check the dict {&quot;status&quot;: 200} is not in dict {&quot;time&quot;: &quot;2021-07-21T14:30:58+08:00&quot;, &quot;code&quot;: 0, &quot;message&quot;: null, &quot;data&quot;: {&quot;userId&quot;: &quot;1390614403685490688&quot;, &quot;username&quot;: &quot;手机用户is8ZB9&quot;, &quot;profiles&quot;: null, &quot;profile&quot;: {&quot;nickname&quot;: &quot;lalalalala&quot;, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;orgCode&quot;: &quot;10002&quot;, &quot;orgName&quot;: &quot;OCS专用_CC&quot;, &quot;orgId&quot;: 2}, &quot;mobile&quot;: &quot;13000000020&quot;, &quot;email&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;sexType&quot;: null, &quot;mobileBindStatus&quot;: null, &quot;accessToken&quot;: &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;, &quot;hasSetPassword&quot;: true, &quot;created&quot;: &quot;2021-07-09 11:27:02&quot;, &quot;refreshToken&quot;: &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;, &quot;refreshed&quot;: &quot;2021-07-21 14:30:58&quot;, &quot;expired&quot;: &quot;2021-08-20 14:30:58&quot;, &quot;clubAuth&quot;: &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;, &quot;clubAuthExpired&quot;: &quot;2021-08-04T14:30:58+08:00&quot;, &quot;bindMobileRequired&quot;: null, &quot;mobileBind&quot;: true, &quot;passwordKey&quot;: &quot;wliqzysggc&quot;, &quot;selectOrg&quot;: true, &quot;profileList&quot;: null, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;nickname&quot;: &quot;lalalalala&quot;}, &quot;status&quot;: 0, &quot;ok&quot;: true, &quot;fail&quot;: false, &quot;hexCode&quot;: &quot;0&quot;}</span><br/><span class="error">E           assert False</span><br/><br/>poseidon/base/CommonBase.py:640: AssertionError<br/> -----------------------------Captured stdout setup------------------------------ <br/>
-<br/> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 执行用例tests/test_example/test_api.py::TestAPIDemo::test_api_get_music_info:验证获取歌曲API成功 (light_of_the_mermaid.py:70)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] url:https://api.apiopen.top/searchMusic/?name=Jack (bus_api.py:21)<br/> ------------------------------Captured stderr call------------------------------ <br/>*   Trying 172.27.2.143...
-* TCP_NODELAY set
-* Connected to yzpass-api.techedux.tech (172.27.2.143) port 443 (#0)
-* ALPN, offering http/1.1
-* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
-* successfully set certificate verify locations:
-*   CAfile: /etc/ssl/cert.pem
-  CApath: none
-* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
-* ALPN, server accepted to use http/1.1
-* Server certificate:
-*  subject: C=CN; ST=\U4E0A\U6D77\U5E02; O=\U4E0A\U6D77\U82F1\U62D3\U4FE1\U606F\U79D1\U6280\U6709\U9650\U516C\U53F8; CN=*.techedux.tech
-*  start date: Mar 25 00:00:00 2021 GMT
-*  expire date: Mar 29 23:59:59 2022 GMT
-*  subjectAltName: host &quot;yzpass-api.techedux.tech&quot; matched cert&#x27;s &quot;*.techedux.tech&quot;
-*  issuer: C=US; O=DigiCert Inc; OU=www.digicert.com; CN=GeoTrust CN RSA CA G1
-*  SSL certificate verify ok.
-&gt; POST /login/loginByPassword HTTP/1.1
-Host: yzpass-api.techedux.tech
-User-Agent: Mozilla/5.2 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50324)
-Accept: */*
-Content-Type:application/json
-Content-Length: 107
-
-* upload completely sent off: 107 out of 107 bytes
-&lt; HTTP/1.1 200 OK
-&lt; Date: Wed, 21 Jul 2021 06:30:58 GMT
-&lt; Content-Type: application/json
-&lt; Transfer-Encoding: chunked
-&lt; Connection: keep-alive
-&lt; X-HJ-Response-ID: 0dc186da306b47d7bffa8202275d727f
-&lt; Vary: Accept-Encoding, User-Agent
-&lt; X-IN-APIGATEWAY: ali-47
-&lt; Server: API-GATEWAYSSL/1.0
-&lt; X-IN-APIGATEWAYSSL: ali-165
-&lt; 
-* Connection #0 to host yzpass-api.techedux.tech left intact
-<br/> -------------------------------Captured log call-------------------------------- <br/>&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] [APNSUrl] https://yzpass-api.techedux.tech/login/loginByPassword (bus_api.py:29)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 使用pycurl发送请求 (RequestsHelper.py:42)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求url: https://yzpass-api.techedux.tech/login/loginByPassword (RequestsHelper.py:73)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求method: POST (RequestsHelper.py:74)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求header: [&#x27;Content-Type:application/json&#x27;] (RequestsHelper.py:87)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求header type is: &lt;class &#x27;list&#x27;&gt; (RequestsHelper.py:88)
-&#x27;2021-07-21 14:30:57&#x27; [[32mINFO[0m] 请求data: {&quot;username&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;password&quot;: &quot;14a85607c6564c7d18de2e4474fb597a&quot;, &quot;orgCode&quot;: &quot;10002&quot;} (RequestsHelper.py:108)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 请求总时间: 437.466 ms (RequestsHelper.py:158)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] DNS域名解析时间 : 70.339 ms (RequestsHelper.py:159)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] TCP连接消耗时间 : 9.587 ms (RequestsHelper.py:160)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 重定向时间: 0.000 ms (RequestsHelper.py:161)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] SSL握手消耗时间 : 281.683 ms (RequestsHelper.py:162)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 客户端发送请求准备时间: 0.141 ms (RequestsHelper.py:163)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 服务器处理时间: 75.336 ms (RequestsHelper.py:164)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 数据传输时间: 0.380 ms (RequestsHelper.py:165)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 校验httpStatusExp (RequestsHelper.py:189)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] Check the value &#x27;200&#x27; with &#x27;200&#x27; (CommonBase.py:304)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] 响应response:{
-  &quot;time&quot; : &quot;2021-07-21T14:30:58+08:00&quot;,
-  &quot;code&quot; : 0,
-  &quot;message&quot; : null,
-  &quot;data&quot; : {
-    &quot;userId&quot; : &quot;1390614403685490688&quot;,
-    &quot;username&quot; : &quot;手机用户is8ZB9&quot;,
-    &quot;profiles&quot; : null,
-    &quot;profile&quot; : {
-      &quot;nickname&quot; : &quot;lalalalala&quot;,
-      &quot;avatar&quot; : &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;,
-      &quot;orgCode&quot; : &quot;10002&quot;,
-      &quot;orgName&quot; : &quot;OCS专用_CC&quot;,
-      &quot;orgId&quot; : 2
-    },
-    &quot;mobile&quot; : &quot;13000000020&quot;,
-    &quot;email&quot; : &quot;songmengyun@hujiang.com&quot;,
-    &quot;sexType&quot; : null,
-    &quot;mobileBindStatus&quot; : null,
-    &quot;accessToken&quot; : &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;,
-    &quot;hasSetPassword&quot; : true,
-    &quot;created&quot; : &quot;2021-07-09 11:27:02&quot;,
-    &quot;refreshToken&quot; : &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;,
-    &quot;refreshed&quot; : &quot;2021-07-21 14:30:58&quot;,
-    &quot;expired&quot; : &quot;2021-08-20 14:30:58&quot;,
-    &quot;clubAuth&quot; : &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;,
-    &quot;clubAuthExpired&quot; : &quot;2021-08-04T14:30:58+08:00&quot;,
-    &quot;bindMobileRequired&quot; : null,
-    &quot;mobileBind&quot; : true,
-    &quot;passwordKey&quot; : &quot;wliqzysggc&quot;,
-    &quot;selectOrg&quot; : true,
-    &quot;profileList&quot; : null,
-    &quot;avatar&quot; : &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;,
-    &quot;nickname&quot; : &quot;lalalalala&quot;
-  },
-  &quot;status&quot; : 0,
-  &quot;ok&quot; : true,
-  &quot;fail&quot; : false,
-  &quot;hexCode&quot; : &quot;0&quot;
-} (RequestsHelper.py:193)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] Check the dict {&quot;status&quot;: 200} is in dict {&quot;time&quot;: &quot;2021-07-21T14:30:58+08:00&quot;, &quot;code&quot;: 0, &quot;message&quot;: null, &quot;data&quot;: {&quot;userId&quot;: &quot;1390614403685490688&quot;, &quot;username&quot;: &quot;手机用户is8ZB9&quot;, &quot;profiles&quot;: null, &quot;profile&quot;: {&quot;nickname&quot;: &quot;lalalalala&quot;, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;orgCode&quot;: &quot;10002&quot;, &quot;orgName&quot;: &quot;OCS专用_CC&quot;, &quot;orgId&quot;: 2}, &quot;mobile&quot;: &quot;13000000020&quot;, &quot;email&quot;: &quot;songmengyun@hujiang.com&quot;, &quot;sexType&quot;: null, &quot;mobileBindStatus&quot;: null, &quot;accessToken&quot;: &quot;134c746eaf372000.e98a2c9323680beab6012836492c404f&quot;, &quot;hasSetPassword&quot;: true, &quot;created&quot;: &quot;2021-07-09 11:27:02&quot;, &quot;refreshToken&quot;: &quot;282137f781918bf2da4aacc62d719711cfe3a043&quot;, &quot;refreshed&quot;: &quot;2021-07-21 14:30:58&quot;, &quot;expired&quot;: &quot;2021-08-20 14:30:58&quot;, &quot;clubAuth&quot;: &quot;313339303631343430333638353439303638382e3235653235623638666635383061653366356538383662636361626637663937&quot;, &quot;clubAuthExpired&quot;: &quot;2021-08-04T14:30:58+08:00&quot;, &quot;bindMobileRequired&quot;: null, &quot;mobileBind&quot;: true, &quot;passwordKey&quot;: &quot;wliqzysggc&quot;, &quot;selectOrg&quot;: true, &quot;profileList&quot;: null, &quot;avatar&quot;: &quot;https://hjtest.hjfile.cn/u/200/1365136178952913018/JqXrOKCQzqcsSkE.jpg&quot;, &quot;nickname&quot;: &quot;lalalalala&quot;}, &quot;status&quot;: 0, &quot;ok&quot;: true, &quot;fail&quot;: false, &quot;hexCode&quot;: &quot;0&quot;} (CommonBase.py:608)
-&#x27;2021-07-21 14:30:58&#x27; [[32mINFO[0m] check status: actual=0, expected=200 (CommonBase.py:633)
-&#x27;2021-07-21 14:30:58&#x27; [[31m[1mERROR[0m] the actual status value is 0, but expected is 200 (CommonBase.py:637)<br/></div></td></tr></tbody></table></body></html>
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名正确, 密码正确-&gt;[用户名:linux超-密码:linux超哥-预期:{&#x27;code&#x27;: 1001, &#x27;msg&#x27;: &#x27;登录成功&#x27;, &#x27;data&#x27;: &#x27;success&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åæ­£ç¡®, å¯ç ä¸ºç©º-&gt;[ç¨æ·å:linuxè¶-å¯ç :-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
+          <td>测试登录</td>
+          <td class="col-time">2021-11-17 09:37:55.520642</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名正确, 密码为空-&gt;[用户名:linux超-密码:-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åä¸ºç©º, å¯ç æ­£ç¡®-&gt;[ç¨æ·å:-å¯ç :linuxè¶å¥-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
+          <td>测试登录</td>
+          <td class="col-time">2021-11-17 09:37:55.521049</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名为空, 密码正确-&gt;[用户名:-密码:linux超哥-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åéè¯¯, å¯ç éè¯¯-&gt;[ç¨æ·å:linux-å¯ç :linux-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
+          <td>测试登录</td>
+          <td class="col-time">2021-11-17 09:37:55.521463</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名错误, 密码错误-&gt;[用户名:linux-密码:linux-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody></table></body></html>

@@ -1,7 +1,9 @@
 import pytest
 import logging
 from pytest_testconfig import config as pyconfig
+from selenium import webdriver
 import poseidon.base.CommonBase as cb
+
 
 
 
@@ -92,37 +94,3 @@ def pytest_collection_modifyitems(session, config, items):
                 skip_mark = pytest.mark.skip("因为frequency参数不是: %s" % (_filter_frequency))
                 item.add_marker(skip_mark)
 
-@pytest.fixture(scope='class')
-def driver_headless():
-
-    if 'driver' in pyconfig and pyconfig['driver'].strip().lower() == 'chrome':
-        from selenium import webdriver
-        options = webdriver.ChromeOptions()  # option对象
-        options.add_argument('headless')  # 给option添加属性
-        driver = webdriver.Chrome(options=options)
-        return driver
-    else:
-        print('该浏览器不支持无头')
-
-@pytest.fixture(scope='function')
-def driver_android():
-
-    from poseidon.ui.mobile.android.init_driver import get_desired_caps
-
-    _desired_caps = get_desired_caps()
-    if not 'newCommandTimeout' in _desired_caps:
-        _desired_caps['newCommandTimeout'] = 60
-
-    if 'command_executor' in _desired_caps:
-        _com_executor = _desired_caps.pop('command_executor')
-    else:
-        _com_executor = 'http://localhost:4723/wd/hub'
-
-    from appium import webdriver
-    driver = webdriver.Remote(_com_executor, _desired_caps)
-    logging.info(f'starting launch {_desired_caps}'.center(50, '#'))
-
-    yield driver
-
-    logging.info(f'ending {_desired_caps}'.center(50, '#'))
-    driver.quit()

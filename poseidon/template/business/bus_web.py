@@ -2,7 +2,7 @@
 
 """
 @author:songmengyun
-@file: bus_web.py
+@file: bus_ui.py
 @time: 2019/12/25
 
 """

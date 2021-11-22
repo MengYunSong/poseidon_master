@@ -17,11 +17,14 @@ from poseidon.base import CommonBase as cb
 
 def pytest_configure(config):
     '''修改Environment中内容'''
-    config._metadata['Current Env'] = pyconfig.get('env', 'qa')
-    config._metadata.pop("JAVA_HOME")
+    config._metadata['当前环境'] = pyconfig.get('env', 'qa')
+    config._metadata['测试地址'] = IP.get_host_ip()
+    config._metadata.pop("Base URL") if "Base URL" in config._metadata else None
+    config._metadata.pop("Capabilities") if "Capabilities" in config._metadata else None
 
 def pytest_html_results_summary(prefix):
-    prefix.extend([html.p(f"Runner: {IP.get_host_name()[0]} at {IP.get_host_ip()}")])
+    prefix.extend([html.p(f"测试人员: {IP.get_host_name()[0]}")])
+    # prefix.extend([html.p(f"Runner: {IP.get_host_name()[0]} at {IP.get_host_ip()}")])
 
 @pytest.mark.optionalhook
 def pytest_html_results_table_header(cells):
@@ -47,6 +50,10 @@ def pytest_runtest_makereport(item):
     report = outcome.get_result()
     report.description = str(item.function.__doc__)
     # report.nodeid = report.nodeid.encode("utf-8").decode("unicode_escape")
+
+
+
+
 
 
 # assert相关
@@ -95,5 +102,7 @@ def pytest_terminal_summary():
             _item_name = pyconfig['rootdir'].split('/')[-1]
             _mail_title = f'{_item_name}自动化测试报告'
             send_mail_object = SendMail(sender=_sender, receiver=_receiver, mail_title=_mail_title,
-                                        smtp_server=_smtp_server, smtp_port=int(_smtp_port))
-            send_mail_object.send_mail()
+                                        smtp_server=_smtp_server, smtp_port=int(_smtp_port),
+                                        mail_user=_mail_user, mail_pwd=_mail_pwd)
+            # send_mail_object.send_mail()
+            send_mail_object.send_mail_html_ssl()

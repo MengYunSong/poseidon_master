@@ -365,7 +365,7 @@ class Requests:
 
 
 
-    #region function
+    # region function
 
     def get_default_header_pycurl(self, templateName='default_header_template_1_pycurl'):
         conf = Curl_conf()
@@ -421,7 +421,7 @@ class Requests:
             return new_dict
 
 
-#endregion
+    # endregion
 
 
 
