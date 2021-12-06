@@ -13,8 +13,9 @@ from poseidon.base.SendMail import SendMail
 from poseidon.base.IP import IP
 from poseidon.base import CommonBase as cb
 
-# 测试报告相关
 
+
+# 测试报告相关
 def pytest_configure(config):
     '''修改Environment中内容'''
     config._metadata['当前环境'] = pyconfig.get('env', 'qa')
@@ -37,7 +38,7 @@ def pytest_html_results_table_header(cells):
 def pytest_html_results_table_row(report, cells):
     '''修改report.html中的results-table行部分'''
     cells.insert(2, html.td(report.description))
-    cells.insert(3, html.td(datetime.utcnow(), class_='col-time'))
+    cells.insert(3, html.td(datetime.now(), class_='col-time'))
     cells.pop()
 
 def pytest_html_results_table_html(report, data):
@@ -50,33 +51,6 @@ def pytest_runtest_makereport(item):
     report = outcome.get_result()
     report.description = str(item.function.__doc__)
     # report.nodeid = report.nodeid.encode("utf-8").decode("unicode_escape")
-
-
-
-
-
-
-# assert相关
-class Foo:
-    def __init__(self, val):
-         self.val = val
-
-    def __eq__(self, other):
-        return self.val == other.val
-
-def pytest_assertrepr_compare(op, left, right):
-    '''比较两个对象相等'''
-    if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
-        return ['Foo实例对比:',
-                '   值: %s != %s' % (left.val, right.val)]
-
-def pytest_runtest_setup(item):
-    import re
-    _msg = str(item.function.__doc__)
-    _msg = re.search('\w+', _msg).group()
-    logging.info("执行用例{nodeid}:{desc}".format(nodeid=item.nodeid,
-                                              desc=_msg.strip()))
-
 
 def pytest_terminal_summary():
     '''
@@ -106,3 +80,30 @@ def pytest_terminal_summary():
                                         mail_user=_mail_user, mail_pwd=_mail_pwd)
             # send_mail_object.send_mail()
             send_mail_object.send_mail_html_ssl()
+
+def pytest_runtest_setup(item):
+    import re
+    _msg = str(item.function.__doc__)
+    _msg = re.search('\w+', _msg).group()
+    logging.info("执行用例{nodeid}:{desc}".format(nodeid=item.nodeid,
+                                              desc=_msg.strip()))
+
+
+# assert相关
+class Foo:
+    def __init__(self, val):
+         self.val = val
+
+    def __eq__(self, other):
+        return self.val == other.val
+
+def pytest_assertrepr_compare(op, left, right):
+    '''比较两个对象相等'''
+    if isinstance(left, Foo) and isinstance(right, Foo) and op == "==":
+        return ['Foo实例对比:',
+                '   值: %s != %s' % (left.val, right.val)]
+
+
+
+
+

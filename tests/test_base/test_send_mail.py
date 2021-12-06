@@ -11,6 +11,7 @@ import logging
 
 class TestSendMail():
 
+
     def test_send_mail(self):
         assert 1==1
         logging.info('check email success')

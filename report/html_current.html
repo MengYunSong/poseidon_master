@@ -428,41 +428,44 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
-    <h1>log_20211117_173754_25.html</h1>
-    <p>Report generated on 17-Nov-2021 at 17:37:55 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <h1>log_20211123_150837_68.html</h1>
+    <p>Report generated on 23-Nov-2021 at 15:08:37 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
+      <tr>
+        <td>Base URL</td>
+        <td></td></tr>
       <tr>
         <td>Capabilities</td>
         <td>{}</td></tr>
       <tr>
         <td>Driver</td>
-        <td>chrome</td></tr>
+        <td>None</td></tr>
       <tr>
         <td>JAVA_HOME</td>
         <td>/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home</td></tr>
       <tr>
         <td>Packages</td>
-        <td>{"pluggy": "0.13.1", "py": "1.8.0", "pytest": "5.3.5"}</td></tr>
+        <td>{"pluggy": "0.13.1", "py": "1.11.0", "pytest": "5.3.2"}</td></tr>
       <tr>
         <td>Platform</td>
         <td>macOS-10.14.6-x86_64-i386-64bit</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{"allure-pytest": "2.8.11", "base-url": "1.4.1", "html": "3.1.1", "json": "0.4.0", "metadata": "1.8.0", "poseidon": "3.0.3", "selenium": "2.0.1", "testconfig": "0.2.0", "variables": "1.9.0"}</td></tr>
+        <td>{"allure-pytest": "2.8.11", "base-url": "1.4.1", "html": "3.1.1", "json": "0.4.0", "metadata": "1.8.0", "poseidon": "3.0.4.dev7+g2417acc.d20211122", "selenium": "2.0.1", "testconfig": "0.2.0", "variables": "1.9.0"}</td></tr>
       <tr>
         <td>Python</td>
         <td>3.8.0</td></tr>
       <tr>
         <td>当前环境</td>
-        <td>qa</td></tr>
+        <td>yz</td></tr>
       <tr>
         <td>测试地址</td>
         <td>192.168.155.11</td></tr></table>
     <h2>Summary</h2>
     <p>测试人员: songmengyun</p>
-    <p>4 tests ran in 0.17 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>5 tests ran in 0.24 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">5 passed</span>, <input checked="true" class="filter" data-test-result="skipped" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">6 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -474,43 +477,126 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable" col="duration">Duration</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="5">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åæ­£ç¡®, å¯ç æ­£ç¡®-&gt;[ç¨æ·å:linuxè¶-å¯ç :linuxè¶å¥-é¢æ:{&apos;code&apos;: 1001, &apos;msg&apos;: &apos;ç»å½æå&apos;, &apos;data&apos;: &apos;success&apos;}]]</td>
-          <td>测试登录</td>
-          <td class="col-time">2021-11-17 09:37:55.517500</td>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_one[aaæµè¯1]</td>
+          <td>
+        英文字符相等比较，其中一个大另外一个小
+        </td>
+          <td class="col-time">2021-11-23 15:08:37.475087</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名正确, 密码正确-&gt;[用户名:linux超-密码:linux超哥-预期:{&#x27;code&#x27;: 1001, &#x27;msg&#x27;: &#x27;登录成功&#x27;, &#x27;data&#x27;: &#x27;success&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 17, &#x27;Skipped: 不支持yz环境运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åæ­£ç¡®, å¯ç ä¸ºç©º-&gt;[ç¨æ·å:linuxè¶-å¯ç :-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
-          <td>测试登录</td>
-          <td class="col-time">2021-11-17 09:37:55.520642</td>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_one[bbæµè¯2]</td>
+          <td>
+        英文字符相等比较，其中一个大另外一个小
+        </td>
+          <td class="col-time">2021-11-23 15:08:37.475844</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名正确, 密码为空-&gt;[用户名:linux超-密码:-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 17, &#x27;Skipped: 不支持yz环境运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åä¸ºç©º, å¯ç æ­£ç¡®-&gt;[ç¨æ·å:-å¯ç :linuxè¶å¥-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
-          <td>测试登录</td>
-          <td class="col-time">2021-11-17 09:37:55.521049</td>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_two</td>
+          <td>
+        失败：英文字符不等比较
+
+        </td>
+          <td class="col-time">2021-11-23 15:08:37.479365</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名为空, 密码正确-&gt;[用户名:-密码:linux超哥-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 39, &#x27;Skipped: 不支持yz环境运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_example/test_login.py::TestLogin::test_login[æµè¯ï¼ç¨æ·åéè¯¯, å¯ç éè¯¯-&gt;[ç¨æ·å:linux-å¯ç :linux-é¢æ:{&apos;code&apos;: 1000, &apos;msg&apos;: &apos;ç¨æ·åæå¯ç éè¯¯&apos;, &apos;data&apos;: &apos;fail&apos;}]]</td>
-          <td>测试登录</td>
-          <td class="col-time">2021-11-17 09:37:55.521463</td>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_four</td>
+          <td>None</td>
+          <td class="col-time">2021-11-23 15:08:37.482642</td>
           <td class="col-duration">0.00</td></tr>
         <tr>
           <td class="extra" colspan="5">
-            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-17 17:37:55&#x27; [INFO] 执行用例tests/test_example/test_login.py::TestLogin::test_login[测试：用户名错误, 密码错误-&gt;[用户名:linux-密码:linux-预期:{&#x27;code&#x27;: 1000, &#x27;msg&#x27;: &#x27;用户名或密码错误&#x27;, &#x27;data&#x27;: &#x27;fail&#x27;}]]:测试登录 (light_of_the_mermaid.py:77)<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 61, &#x27;Skipped: 不支持five_min运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
+        <tr>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_set_one</td>
+          <td>预计set相等比较</td>
+          <td class="col-time">2021-11-23 15:08:37.484179</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 73, &#x27;Skipped: 不支持five_min运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="skipped results-table-row">
+        <tr>
+          <td class="col-result">Skipped</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_set_three</td>
+          <td>set子集判断</td>
+          <td class="col-time">2021-11-23 15:08:37.486109</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log">(&#x27;tests/test_example/test_assert.py&#x27;, 87, &#x27;Skipped: 不支持five_min运行&#x27;)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_three</td>
+          <td>
+        英文字符相等比较，错误后捕获预计异常
+        </td>
+          <td class="col-time">2021-11-23 15:08:37.482097</td>
+          <td class="col-duration">0.01</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-23 15:08:37&#x27; [INFO] 执行用例tests/test_example/test_assert.py::Test_assert::test_string_three:英文字符相等比较 (light_of_the_mermaid.py:88)<br/> ------------------------------Captured stdout call------------------------------ <br/>value: error info
+assert &#x27;pytest&#x27; == &#x27;pytest1&#x27;
+type: &lt;class &#x27;AssertionError&#x27;&gt;
+traceback: [&lt;TracebackEntry /Users/songmengyun/automation/poseidon_master/tests/test_example/test_assert.py:55&gt;]
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_string_five</td>
+          <td>中文字符不等比较</td>
+          <td class="col-time">2021-11-23 15:08:37.483111</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-23 15:08:37&#x27; [INFO] 执行用例tests/test_example/test_assert.py::Test_assert::test_string_five:中文字符不等比较 (light_of_the_mermaid.py:88)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_set_two</td>
+          <td>预计set不等比较</td>
+          <td class="col-time">2021-11-23 15:08:37.485449</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-23 15:08:37&#x27; [INFO] 执行用例tests/test_example/test_assert.py::Test_assert::test_set_two:预计set不等比较 (light_of_the_mermaid.py:88)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_list_one</td>
+          <td>验证2个list相等</td>
+          <td class="col-time">2021-11-23 15:08:37.486349</td>
+          <td class="col-duration">0.00</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-23 15:08:37&#x27; [INFO] 执行用例tests/test_example/test_assert.py::Test_assert::test_list_one:验证2个list相等 (light_of_the_mermaid.py:88)<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">tests/test_example/test_assert.py::Test_assert::test_dict_one</td>
+          <td>验证2个dict相等</td>
+          <td class="col-time">2021-11-23 15:08:37.486674</td>
+          <td class="col-duration">0.01</td></tr>
+        <tr>
+          <td class="extra" colspan="5">
+            <div class="log"> -------------------------------Captured log setup------------------------------- <br/>&#x27;2021-11-23 15:08:37&#x27; [INFO] 执行用例tests/test_example/test_assert.py::Test_assert::test_dict_one:验证2个dict相等 (light_of_the_mermaid.py:88)<br/></div></td></tr></tbody></table></body></html>

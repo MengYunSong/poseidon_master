@@ -45,7 +45,7 @@ class Test_assert:
         time.sleep(2)
         assert "pytest" == "pytest1", "error info"
 
-    @pytest.mark.run([Env.qa],[Frequency.five_min])
+    @pytest.mark.run([Env.yz],[Frequency.five_min])
     def test_string_three(self):
         """
         英文字符相等比较，错误后捕获预计异常

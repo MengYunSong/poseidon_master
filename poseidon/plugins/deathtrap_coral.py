@@ -6,18 +6,47 @@ import poseidon.base.CommonBase as cb
 
 
 
-
 def pytest_cmdline_preparse(config, args):
+    '''如果命令行传入env和fre，就取命令行；如果没有，取ini, 同时补全默认参数'''
+    try:
+        pyconfig["sections"] = config.inicfg.config.sections  # pytest6以下版本
+        _section_extra = pyconfig["sections"].get('extra', None)
+        _section_report = pyconfig["sections"].get('report', None)
+        pyconfig['mail'] = pyconfig['sections'].get('mail', None)
+        pyconfig['http'] = pyconfig['sections'].get('http', None)
+    except:   # pytest6以上版本
+        import configparser
+        path = config.inifile.strpath
+        cof = configparser.ConfigParser()
+        cof.read(path)
+        _section_extra = dict(cof.items('extra'))
+        _section_report = dict(cof.items('report'))
+        pyconfig['mail'] = dict(cof.items('mail'))
+        pyconfig['http'] = dict(cof.items('http'))
 
-    # 如果能从命令行获取传入env和frequency参数
-    # 就将其替换pytest.ini extra section中的值
-    pyconfig["sections"] = config.inicfg.config.sections
-    _section_extra = pyconfig["sections"].get('extra', None)
-    _section_report = pyconfig["sections"].get('report', None)
-    _section_mail = pyconfig['sections'].get('mail', None)
-    _section_mobile = pyconfig['sections'].get('mobile', None)
-    pyconfig['mail'] = _section_mail
-    pyconfig['mobile'] = _section_mobile
+    # 默认取pytest.ini中env和fre
+    pyconfig['env'] = _section_extra.get("env", None)
+    pyconfig['frequency'] = _section_extra.get("frequency", None)
+
+    # 解析命令行参数，如果有就替换
+    for _cmdline_args_item in args:
+        # 如果能从命令行获取传入env，将其赋予pyconfig全局变量中
+        if "--env" in _cmdline_args_item:
+            arg_item = _cmdline_args_item.split('=')
+            # config.inicfg.config.sections['extra']['env'] = arg_item[-1]
+            pyconfig["env"] = arg_item[-1]  # 替换全局变量 env
+
+        if "frequency" in _cmdline_args_item:
+            arg_item = _cmdline_args_item.split('=')
+            # config.inicfg.config.sections['extra']['frequency'] = arg_item[-1]
+            pyconfig["frequency"] = arg_item[-1] # 替换全局变量 frequency
+
+        if "--monitor" in _cmdline_args_item:
+            pyconfig['monitor'] = True
+
+        if "--driver" in _cmdline_args_item:
+            arg_item = _cmdline_args_item.split('=')
+            pyconfig['driver'] = arg_item[-1]
 
     # 设置各种格式的日志
     if _section_report.get("html").strip().lower() == "true":
@@ -29,38 +58,19 @@ def pytest_cmdline_preparse(config, args):
         args.append("--junitxml={}".format(pyconfig['logfile'].get('xml')))
 
     # 设置默认addopts
-    args.append("--cache-clear")    # remove all cache contents at start of test run.
-    args.append("-v")               # increase verbosity
-    args.append("--color=yes")      # color terminal output (yes/no/auto)
-
-    for _cmdline_args_item in args:
-        # 如果能从命令行获取传入env，将其赋予pyconfig全局变量中
-        if "--env" in _cmdline_args_item:
-            arg_item = _cmdline_args_item.split('=')
-            config.inicfg.config.sections['extra']['env'] = arg_item[-1]
-            pyconfig["env"] = arg_item[-1]  # 替换全局变量 env
-        else:
-        #  否则从ini中获取env
-           pyconfig['env'] = _section_extra.get("env", None)
-
-        if "frequency" in _cmdline_args_item:
-            arg_item = _cmdline_args_item.split('=')
-            config.inicfg.config.sections['extra']['frequency'] = arg_item[-1]
-            pyconfig["frequency"] = arg_item[-1] # 替换全局变量 frequency
-        else:
-            pyconfig["frequency"] = _section_extra.get("frequency", None)
-
-        if "--monitor" in _cmdline_args_item:
-            pyconfig['monitor'] = True
-
-        if "--driver" in _cmdline_args_item:
-            arg_item = _cmdline_args_item.split('=')
-            pyconfig['driver'] = arg_item[-1]
+    args.append("--cache-clear")  # remove all cache contents at start of test run.
+    args.append("-v")  # increase verbosity
+    args.append("--color=yes")  # color terminal output (yes/no/auto)
 
 def pytest_addoption(parser):
     # 自动产生日志文件
-    pyconfig["rootdir"] = parser._anonymous.parser.extra_info['rootdir'].strpath
+    try:
+        pyconfig["rootdir"] = parser._anonymous.parser.extra_info['rootdir'].strpath
+    except:
+        pyconfig["rootdir"] = parser._anonymous.parser.extra_info['rootdir']
     pyconfig['logfile'] = cb.get_log_path_forPytest()
+
+    # 添加ini配置
     parser.addini(name='log_file' , help="log file" , type=None , default=pyconfig['logfile'].get("log"))
 
     # 添加命令行参数
@@ -88,9 +98,9 @@ def pytest_collection_modifyitems(session, config, items):
             _filter_frequency = pyconfig.get("frequency", "one_min")
 
             if _filter_env not in mark_runs_env:
-                skip_mark = pytest.mark.skip("因为env参数不是: %s" % (_filter_env))
+                skip_mark = pytest.mark.skip(f"不支持{_filter_env}环境运行")
                 item.add_marker(skip_mark)
             if _filter_frequency not in mark_runs_frequency:
-                skip_mark = pytest.mark.skip("因为frequency参数不是: %s" % (_filter_frequency))
+                skip_mark = pytest.mark.skip(f"不支持{_filter_frequency}运行")
                 item.add_marker(skip_mark)
 
