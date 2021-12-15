@@ -8,6 +8,8 @@
 """
 
 import pytest
+from poseidon.base.Env import Env
+from poseidon.base.Frequency import Frequency
 
 
 def login(username, password):
@@ -53,6 +55,7 @@ ids = [f"测试：{data['case']}->[用户名:{data['user']}-密码:{data['pwd']}
 
 class TestLogin(object):
 
+    @pytest.mark.run([Env.qa, Env.yz, Env.prod], [Frequency.five_min])
     @pytest.mark.parametrize("data", test_data, ids=ids)
     def test_login(self, data):
         '''测试登录'''
