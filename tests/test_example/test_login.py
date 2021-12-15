@@ -50,7 +50,7 @@ test_data = [
     }
 ]
 
-ids = [f"测试：{data['case']}->[用户名:{data['user']}-密码:{data['pwd']}-预期:{data['expected']}]" for data in test_data]
+ids = [f"test：{data['case']}->[username:{data['user']}-password:{data['pwd']}-expire:{data['expected']}]" for data in test_data]
 
 
 class TestLogin(object):
