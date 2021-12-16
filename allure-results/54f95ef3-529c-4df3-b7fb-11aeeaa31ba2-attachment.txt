@@ -1,0 +1,1 @@
+'2021-12-16 11:35:15' [[32mINFO[0m] 执行用例tests/test_example/test_login.py::TestLogin::test_login[test：用户名错误, 密码错误->[username:linux-password:linux-expire:{'code': 1000, 'msg': '用户名或密码错误', 'data': 'fail'}]]:测试登录 (light_of_the_mermaid.py:78)
