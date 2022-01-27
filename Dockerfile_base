@@ -30,4 +30,4 @@ RUN mkdir  /root/.pip/ \
 # 根据requirements安装python第三方库
 COPY requirements.txt /root/
 RUN pip install -r /root/requirements.txt
-RUN pytest tests/test_example --alluredir allure-results
+# RUN pytest tests/test_example/test_login.py

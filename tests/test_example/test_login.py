@@ -59,5 +59,8 @@ class TestLogin(object):
     @pytest.mark.parametrize("data", test_data, ids=ids)
     def test_login(self, data):
         '''测试登录'''
+        import os
+        print(os.getcwd())  #获取当前目录
+
         result = login(data["user"], data["pwd"])
         assert result == data["expected"]
